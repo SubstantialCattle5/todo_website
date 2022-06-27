@@ -12,6 +12,25 @@
 
   <body>
 
+  <!-- navbar-->
+  <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DoNothing</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute ; right : 20px ; ">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <!--Title-->
   <div class = "text-center px-4 pt-5 my-5">
        <h1 class = 'display-2 fw-bold' >Do-Nothing!</h1>
@@ -19,7 +38,7 @@
   </div>
 
     <!-- Top -->
-    <div class="px-4 pt-5 my-5  border" >
+    <div class="px-4 pt-5 my-5 " style="padding-bottom: 200px ; " >
 
        <div class="col-lg-6 mx-auto text-center">
         <form action="" method="POST">
@@ -38,16 +57,21 @@
     </form>
 
        </div>
+
     </div>
 
     <!--ToDo list -->
+  {%  for task in tasks   %}
   <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5  rounded-3 border shadow-lg card">
-        <h4 class="display-6 fw-bold lh-1">Task</h4>
+        <h4 class="display-6 fw-bold lh-1">Task </h4>
         <br>
         <div class = 'row'>
+        <p class = 'fst-italic col-lg-3'>
+            {{ task.created_at }}
+        </p>
         <p class="lead col-lg-10">
-            Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+            {{ task.task }}
         </p>
         </div>
         <br>
@@ -61,7 +85,7 @@
   </div>
 
   </div>
-
+  {% endfor  %}
 
 
 
