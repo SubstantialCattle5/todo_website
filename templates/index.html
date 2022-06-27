@@ -75,17 +75,19 @@
         </p>
         </div>
         <br>
+        <form action="" method="GET">
         <div class = 'row'>
-            <button type="button" class="btn btn-success col-lg-2" id="liveToastBtn">Done</button>
+            <button type="button" class="btn btn-success col-lg-2" id="liveToastBtn"> Done </button>
             <p class = 'col-lg-1'></p>
-            <button type="submit" class="btn btn-danger col-lg-2">Ignored</button>
+            <button type="submit" class="btn btn-danger col-lg-2" name="{{ task.id }}">Ignored</button>
         </div>
         <br>
+        </form>
 
   </div>
 
   </div>
-  {% endfor  %}
+  {% endfor %}
 
 
 
@@ -137,7 +139,7 @@
     </div>
 
     <script>
-            const toastTrigger = document.getElementById('liveToastBtn')
+            const toastTrigger = document.getElementsByClassName('liveToastBtn')
     const toastLiveExample = document.getElementById('task-done')
     if (toastTrigger) {
       toastTrigger.addEventListener('click', () => {

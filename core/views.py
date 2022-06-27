@@ -21,15 +21,21 @@ def index(request):
                     user='root'
                 )
                 new_task.save()
-
-
-    try:
         return render(request, 'index.html', {
             'tasks': Post.objects.filter(user='root')
         })
 
-    except:
-        return render(request, 'index.html')
+        # removing a task
+    if request.method == "GET":
+        # taking out all the tasks ids
+        task_ids = [f"{task_id.id}" for task_id in Post.objects.filter(user='root')]
+        for id in task_ids:
+            if id in request.GET:
+                Post.objects.filter(id=id).delete()  # deleting the object
+
+    return render(request, 'index.html', {
+        'tasks': Post.objects.filter(user='root')
+    })
 
 
 def login(request):
