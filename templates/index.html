@@ -1,0 +1,70 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Do-little</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <link href="{% static 'css/styles.css' %}" rel = 'stylesheet'>
+  </head>
+  <body>
+
+    <!--Title-->
+  <div class = "text-center px-4 pt-5 my-5">
+       <h1 class = 'display-2 fw-bold' >Do-Nothing</h1>
+        <p class="lead mb-4">Productive website which allows you to not do any work.</p>
+  </div>
+
+    <div class="px-4 pt-5 my-5  border" >
+
+       <div class="col-lg-6 mx-auto text-center">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <!-- Text area-->
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                 <textarea name="task" rows="5" cols="100" class="shadow-lg" placeholder="Enter the task you wanna skip...."></textarea>
+          </div>
+
+     <!--Buttons--->
+         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+             <button type="submit" class="btn btn-success btn-lg btn-block" name ='save'>Skip</button>
+             <p></p>
+             <button type="submit" class="btn btn-danger btn-lg"  name = 'exit'>Save</button>
+         </div>
+    </form>
+
+       </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
