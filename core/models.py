@@ -20,8 +20,7 @@ class Profile(models.Model):
 
 # model for post
 class Post(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    user = models.CharField(max_length=180)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     task = models.TextField()
     created_at = models.DateTimeField(default=datetime.now)
 

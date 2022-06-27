@@ -9,14 +9,16 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
       <link href="{% static 'css/styles.css' %}" rel = 'stylesheet'>
   </head>
+
   <body>
 
     <!--Title-->
   <div class = "text-center px-4 pt-5 my-5">
-       <h1 class = 'display-2 fw-bold' >Do-Nothing</h1>
+       <h1 class = 'display-2 fw-bold' >Do-Nothing!</h1>
         <p class="lead mb-4">Productive website which allows you to not do any work.</p>
   </div>
 
+    <!-- Top -->
     <div class="px-4 pt-5 my-5  border" >
 
        <div class="col-lg-6 mx-auto text-center">
@@ -38,6 +40,27 @@
        </div>
     </div>
 
+    <!--ToDo list -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5  rounded-3 border shadow-lg card">
+        <h4 class="display-6 fw-bold lh-1">Task</h4>
+        <br>
+        <div class = 'row'>
+        <p class="lead col-lg-10">
+            Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+        </p>
+        </div>
+        <br>
+        <div class = 'row'>
+            <button type="button" class="btn btn-success col-lg-2" id="liveToastBtn">Done</button>
+            <p class = 'col-lg-1'></p>
+            <button type="submit" class="btn btn-danger col-lg-2">Ignored</button>
+        </div>
+        <br>
+
+  </div>
+
+  </div>
 
 
 
@@ -63,8 +86,48 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+        <!-- toast-->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="task-done" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                  <strong class="me-auto">Whyyyyyyyyy</strong>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  You were not supposed to do that Task!!!
+                </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+            const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('task-done')
+    if (toastTrigger) {
+      toastTrigger.addEventListener('click', () => {
+        const toast = new bootstrap.Toast(toastLiveExample)
+
+        toast.show()
+      })
+    }
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+
   </body>
 </html>
