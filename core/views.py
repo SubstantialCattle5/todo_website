@@ -27,17 +27,12 @@ def index(request):
         })
 
         # removing a task
-    if request.method == "GET":
+    elif request.method == "GET":
         # taking out all the tasks ids
-        main_id = 0
         task_ids = [f"{task_id.id}" for task_id in Post.objects.filter(user='root')]
         for id in task_ids:
             if id in request.GET:
-                main_id = id
-                break
-
-
-        # do the api call
+                Post.objects.filter(id=id).delete()  # deleting the object
 
     return render(request, 'index.html', {
         'tasks': Post.objects.filter(user='root')
@@ -91,3 +86,10 @@ def signup(request):
             return redirect('signup')
     else:
         return render(request, 'signup.html')
+
+
+# ----------------Mood Table----------------
+def mood_table(request):
+    if request.method == "POST":
+        return redirect("/")
+    return render(request, "mood_table.html")

@@ -24,6 +24,10 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mood_table">Mood-Table</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
@@ -79,9 +83,9 @@
         <br>
         <form action="" method="GET">
         <div class = 'row'>
-            <button type="button" class="btn btn-success col-lg-2" id="liveToastBtn"> Done </button>
-            <p class = "col-lg-2"></p>
-            <button type="button" class="btn btn-warning col-lg-2" data-bs-toggle="modal" data-bs-target="#modal--{{ task.id }}">Mood!</button>
+            <button type="button" class="btn btn-warning col-lg-2" data-bs-toggle="modal" data-bs-target="#modal--{{ task.id }}" > Mood</button>
+            <p class = 'col-lg-1'></p>
+            <button type="submit" class="btn btn-danger col-lg-2" name="{{ task.id }}">Delete</button>
         </div>
         <br>
         </form>
@@ -89,9 +93,6 @@
   </div>
 
   </div>
-
-
-
   {% endfor %}
 
 {% for task in tasks %}
@@ -114,8 +115,7 @@
 </div>
 {% endfor %}
 
-
-<!-- Modal for save-->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -132,8 +132,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 
