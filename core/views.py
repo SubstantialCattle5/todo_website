@@ -29,10 +29,15 @@ def index(request):
         # removing a task
     if request.method == "GET":
         # taking out all the tasks ids
+        main_id = 0
         task_ids = [f"{task_id.id}" for task_id in Post.objects.filter(user='root')]
         for id in task_ids:
             if id in request.GET:
-                Post.objects.filter(id=id).delete()  # deleting the object
+                main_id = id
+                break
+
+
+        # do the api call
 
     return render(request, 'index.html', {
         'tasks': Post.objects.filter(user='root')
